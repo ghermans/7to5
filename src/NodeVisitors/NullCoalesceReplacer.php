@@ -4,6 +4,9 @@ namespace Spatie\Php7to5\NodeVisitors;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr\BinaryOp\Coalesce;
+use PhpParser\Node\Expr\FuncCall;
+use PhpParser\Node\Expr\Ternary;
+use PhpParser\Node\Name;
 use PhpParser\NodeVisitorAbstract;
 
 class NullCoalesceReplacer extends NodeVisitorAbstract
@@ -17,8 +20,8 @@ class NullCoalesceReplacer extends NodeVisitorAbstract
             return;
         }
 
-        $issetCall = new Node\Expr\FuncCall(new Node\Name('isset'), [$node->left]);
+        $issetCall = new FuncCall(new Name('isset'), [$node->left]);
 
-        return new Node\Expr\Ternary($issetCall, $node->left, $node->right);
+        return new Ternary($issetCall, $node->left, $node->right);
     }
 }
