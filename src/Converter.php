@@ -4,7 +4,7 @@ namespace Spatie\Php7to5;
 
 use PhpParser\NodeTraverser;
 use PhpParser\ParserFactory;
-use Spatie\Php7to5\Exceptions\InvalidParameter;
+use Spatie\Php7to5\Exceptions\InvalidArgument;
 
 class Converter
 {
@@ -14,12 +14,12 @@ class Converter
     /**
      * @param string $pathToPhp7Code
      *
-     * @throws \Spatie\Php7to5\Exceptions\InvalidParameter
+     * @throws \Spatie\Php7to5\Exceptions\InvalidArgument
      */
     public function __construct($pathToPhp7Code)
     {
         if (!file_exists($pathToPhp7Code)) {
-            throw InvalidParameter::fileDoesNotExist($pathToPhp7Code);
+            throw InvalidArgument::fileDoesNotExist($pathToPhp7Code);
         }
 
         $this->pathToPhp7Code = $pathToPhp7Code;

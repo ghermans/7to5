@@ -3,7 +3,7 @@
 namespace Spatie\Php7to5;
 
 use FilesystemIterator;
-use Spatie\Php7to5\Exceptions\InvalidParameter;
+use Spatie\Php7to5\Exceptions\InvalidArgument;
 
 class DirectoryConverter
 {
@@ -15,12 +15,12 @@ class DirectoryConverter
      *
      * @param string $sourceDirectory
      *
-     * @throws \Spatie\Php7to5\Exceptions\InvalidParameter
+     * @throws \Spatie\Php7to5\Exceptions\InvalidArgument
      */
     public function __construct($sourceDirectory)
     {
         if (!file_exists($sourceDirectory)) {
-            throw InvalidParameter::directoryDoesNotExist($sourceDirectory);
+            throw InvalidArgument::directoryDoesNotExist($sourceDirectory);
         }
 
         $this->sourceDirectory = $sourceDirectory;
@@ -49,12 +49,12 @@ class DirectoryConverter
     /**
      * @param string $destinationDirectory
      *
-     * @throws \Spatie\Php7to5\Exceptions\InvalidParameter
+     * @throws \Spatie\Php7to5\Exceptions\InvalidArgument
      */
     public function savePhp5FilesTo($destinationDirectory)
     {
         if ($destinationDirectory === '') {
-            throw InvalidParameter::directoryIsRequired();
+            throw InvalidArgument::directoryIsRequired();
         }
 
         $this->copyDirectory($this->sourceDirectory, $destinationDirectory);

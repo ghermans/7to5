@@ -3,7 +3,7 @@
 namespace Spatie\Php7to5\Test;
 
 use Spatie\Php7to5\Converter;
-use Spatie\Php7to5\Exceptions\InvalidParameter;
+use Spatie\Php7to5\Exceptions\InvalidArgument;
 
 class ConverterTest extends \PHPUnit_Framework_TestCase
 {
@@ -60,7 +60,7 @@ class ConverterTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_will_throw_an_exception_if_the_source_file_does_not_exist()
     {
-        $this->setExpectedException(InvalidParameter::class);
+        $this->setExpectedException(InvalidArgument::class);
 
         new Converter('thisFileDoesNotExist.php');
     }

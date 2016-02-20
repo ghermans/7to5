@@ -4,12 +4,12 @@ namespace Spatie\Php7to5\Exceptions;
 
 use Exception;
 
-class InvalidParameter extends Exception
+class InvalidArgument extends Exception
 {
     /**
      * @param string $directoryName
      *
-     * @return \Spatie\Php7to5\Exceptions\InvalidParameter
+     * @return \Spatie\Php7to5\Exceptions\InvalidArgument
      */
     public static function directoryDoesNotExist($directoryName)
     {
@@ -19,7 +19,7 @@ class InvalidParameter extends Exception
     /**
      * @param string $fileName
      *
-     * @return \Spatie\Php7to5\Exceptions\InvalidParameter
+     * @return \Spatie\Php7to5\Exceptions\InvalidArgument
      */
     public static function fileDoesNotExist($fileName)
     {
@@ -27,7 +27,7 @@ class InvalidParameter extends Exception
     }
 
     /**
-     * @return \Spatie\Php7to5\Exceptions\InvalidParameter
+     * @return \Spatie\Php7to5\Exceptions\InvalidArgument
      */
     public static function directoryIsRequired()
     {
